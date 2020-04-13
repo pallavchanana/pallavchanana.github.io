@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dropdown Menu</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Link</a></li>
+                <li class="sub-menu"><a href="#">Link</a>
+                    <ul>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li class="sub-menu"><a href="#">Link</a>
+                    <ul>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link1</a></li>
+                        <li><a href="#">Link1</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </nav>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </header>
+    <script src="https://code.jquery.com/jquery-3.4.0.js"crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.menu-toggle').click(function(){
+                $('nav').toggleClass('active');
+            })
+            
+            $('ul li').click(function(){
+                $(this).siblings().removeClass('active');
+                $(this).toggleClass('active');
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Justified Image Gallery</title>
+    <style>
+        .heading {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+
+        .img-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .img-a > img {
+          display: block;
+          width: 100%;
+        }
+
+        /* CSS to maintain the height of last row */
+
+        .img-wrapper::after {
+          flex-basis: 18rem;
+        }
+
+        .img-wrapper::after {
+          content: '';
+          flex-grow: 1000000;
+        }
+        
+        @media only screen and (max-width: 600px) {
+          .img-wrapper {
+            display: block;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+      <h1>Justified Image Gallery</h1>
+    </div>
+
+    <div class="img-wrapper">
+
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/200x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/300x200/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/500x400/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/300x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/300x400/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/400x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/200x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/400x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/600x400/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/400x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/200x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/400x300/ccc/000.jpg">
+      </a>
+      <a class="img-a" href="#" >
+        <img src="https://dummyimage.com/600x400/ccc/000.jpg">
+      </a>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".img-a").each(function(i){
+                console.log($(this).children().width(), $(this).children().height());
+
+                var imgW = $(this).children().width();
+                var imgH = $(this).children().height();
+
+                var ratio = imgW/imgH;
+
+                // Set Row Height Here
+                var rowHeight = 10; // changeable value in rem
+
+                // Set Margin between images Here
+                var imgMargin = .25; // changeable value in rem
+
+                $(this).css("flex-basis", (ratio * rowHeight) + 'rem');
+                $(this).css("flex-grow", (ratio * 100));
+                $(this).css("margin", imgMargin + "rem");
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scroll to Anchor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="options">
+      <ul class="option-list">
+        <li class="option-list-item"><a class="option-list-link active" href="#detail_1">Description</a></li>
+        <li class="option-list-item"><a class="option-list-link" href="#detail_2">Itinerary</a></li>
+        <li class="option-list-item"><a class="option-list-link" href="#detail_3">Media</a></li>
+        <li class="option-list-item"><a class="option-list-link" href="#detail_4">Terms & Conditions</a></li>
+      </ul>
+    </div>
+    <div class="details">
+      <div class="detail-box" id="detail_1">
+        <h1>Description</h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quas, quia voluptas sed vel, nemo veritatis earum exercitationem maiores expedita.
+      </div>
+      <div class="detail-box" id="detail_2">
+        <h1>Itinerary</h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum reprehenderit consequuntur impedit, sapiente nobis porro sint quidem cupiditate dolorum aliquid?
+      </div>
+      <div class="detail-box" id="detail_3">
+        <h1>Media</h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus cum assumenda ipsam excepturi placeat nobis illo aliquam magni accusamus id.
+      </div>
+      <div class="detail-box" id="detail_4">
+        <h1>Terms & Conditions</h1>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quae maxime velit rem ex quia dolore perspiciatis, alias? Numquam, beatae.
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $( "a.option-list-link" ).click(function( event ) {
+          event.preventDefault();
+          $("html, body").animate({ scrollTop: $($(this).attr("href")).offset().top }, 500);
+          $(this).addClass("active");
+          $(this).parent().siblings().children().removeClass("active");
+      });
+  });
+  </script>
+</body>
+</html>
